@@ -64,9 +64,3 @@ if (humanScore === 5 || computerScore === 5) {
   result.textContent = humanScore === 5 ? "You win" : "Computer win!";
   disableButtons();
 }
-
-function disableButtons() {
-  rock.disabled = true;
-  paper.disabled = true;
-  scissors.disabled = true;
-}
