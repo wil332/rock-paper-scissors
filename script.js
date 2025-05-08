@@ -19,9 +19,14 @@ function handleClick(humanSelection) {
   score.textContent = `Your score : ${humanScore} | Computer score : ${computerScore}`;
 
   if (humanScore === 5 || computerScore === 5) {
-    result.textContent += `${
-      humanScore === 5 ? "You wins the game!" : "Computer wins the game!"
+    result.textContent += ` ${
+      humanScore === 5 ? "You win the game!" : "Computer wins the game!"
     }`;
+
+    // disable buttons
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
   }
 }
 
