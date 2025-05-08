@@ -55,6 +55,7 @@ const getHumanChoice = () => {
 };
 
 const getComputerChoice = () => {
-  const randNum = Math.floor(Math.random() * 4);
-  return randNum === 1 ? "rock" : randNum === 2 ? "paper" : "scissors";
+  const arr = ["rock", "paper", "scissors"];
+  const randNum = Math.floor(Math.random() * arr.length);
+  return arr[randNum];
 };
