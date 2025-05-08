@@ -22,7 +22,6 @@ function handleClick(humanSelection) {
     result.textContent += `${
       humanScore === 5 ? "You wins the game!" : "Computer wins the game!"
     }`;
-    disabledButtons();
   }
 }
 
