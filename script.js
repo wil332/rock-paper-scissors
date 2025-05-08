@@ -23,7 +23,6 @@ function handleClick(humanSelection) {
       humanScore === 5 ? "You wins the game!" : "Computer wins the game!"
     }`;
   }
-  disableButtons();
 }
 
 function playRound(humanChoice, computerChoice) {
