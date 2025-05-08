@@ -22,6 +22,7 @@ function handleClick(humanSelection) {
     result.textContent += `${
       humanScore === 5 ? "You wins the game!" : "Computer wins the game!"
     }`;
+    disabledButtons();
   }
 }
 
@@ -59,8 +60,3 @@ const getComputerChoice = () => {
   const randNum = Math.floor(Math.random() * 4);
   return randNum === 1 ? "rock" : randNum === 2 ? "paper" : "scissors";
 };
-
-if (humanScore === 5 || computerScore === 5) {
-  result.textContent = humanScore === 5 ? "You win" : "Computer win!";
-  disableButtons();
-}
