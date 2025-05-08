@@ -5,10 +5,26 @@ const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 const result = document.querySelector(".result");
+const score = document.querySelector(".score");
 
-rock.addEventListener("click", () => playRound("rock"));
-paper.addEventListener("click", () => playRound("paper"));
-scissors.addEventListener("click", () => playRound("scissors"));
+rock.addEventListener("click", () => handleClick("rock"));
+paper.addEventListener("click", () => handleClick("paper"));
+scissors.addEventListener("click", () => handleClick("scissors"));
+
+function handleClick(humanSelection) {
+  const computerSelection = getComputerChoice();
+  const roundResult = playRound(humanSelection, computerSelection);
+
+  result.textContent = roundResult;
+  score.textContent = `Your score : ${humanScore} | Computer score : ${computerScore}`;
+
+  if (humanScore === 5 || computerScore === 5) {
+    result.textContent += `${
+      humanScore === 5 ? "You wins the game!" : "Computer wins the game!"
+    }`;
+  }
+  disableButtons();
+}
 
 function playRound(humanChoice, computerChoice) {
   const player = humanChoice.trim().toLowerCase();
@@ -33,7 +49,7 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function choice(playerChoice, comChoice) {
-  return `You choose ${playerChoice} and computer choose ${comChoice}`;
+  return `You chose ${playerChoice} and computer chose ${comChoice}`;
 }
 
 const getHumanChoice = () => {
@@ -48,4 +64,10 @@ const getComputerChoice = () => {
 if (humanScore === 5 || computerScore === 5) {
   result.textContent = humanScore === 5 ? "You win" : "Computer win!";
   disableButtons();
+}
+
+function disableButtons() {
+  rock.disabled = true;
+  paper.disabled = true;
+  scissors.disabled = true;
 }
