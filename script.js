@@ -28,22 +28,21 @@ function handleClick(humanSelection) {
 function playRound(humanChoice, computerChoice) {
   const player = humanChoice.trim().toLowerCase();
   const chooseStatement = choice(player, computerChoice);
+
   if (player === computerChoice) {
-    return `${chooseStatement}. It\'s a tie!`;
-  } else if (player === "rock") {
-    return computerChoice === "scissors"
-      ? (humanScore++, `${chooseStatement}. You win!`)
-      : (computerScore++, `${chooseStatement}. You lose!`);
-  } else if (player === "paper") {
-    return computerChoice === "rock"
-      ? (humanScore++, `${chooseStatement}. You win!`)
-      : (computerScore++, `${chooseStatement}. You lose!`);
-  } else if (player === "scissors") {
-    return computerChoice === "paper"
-      ? (humanScore++, `${chooseStatement}. You win!`)
-      : (computerScore++, `${chooseStatement}. You lose!`);
+    return `${chooseStatement}. It's a tie!`;
+  }
+
+  if (
+    (player === "rock" && computerChoice === "scissors") ||
+    (player === "paper" && computerChoice === "rock") ||
+    (player === "scissors" && computerChoice === "paper")
+  ) {
+    humanScore++;
+    return `${chooseStatement}. You win!`;
   } else {
-    return "Invalid input!";
+    computerScore++;
+    return `${chooseStatement}. You lose!`;
   }
 }
 
